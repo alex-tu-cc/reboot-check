@@ -20,7 +20,7 @@ set -e
 
 case "$1" in
     configure)
-    systcmctl enable reboot-check-something
+    systemctl enable reboot-check-something
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
