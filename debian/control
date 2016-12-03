@@ -1,0 +1,13 @@
+Source: reboot-check
+Section: misc
+Priority: optional
+Maintainer: Commercial Engineering <commercial-engineering@canonical.com>
+Build-Depends: debhelper (>=9), dh-modaliases
+Standards-Version: 3.9.8
+Vcs-Bzr: 
+
+Package: reboot-check
+Architecture: all
+Depends: ${misc:Depends}
+Description: reboot-check, controlled by /user/local/share/reboot-check/reboot-check.conf
+XB-Modaliases: ${modaliases}

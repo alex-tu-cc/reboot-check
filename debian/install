@@ -1,0 +1,4 @@
+check-wwan.sh /usr/bin
+check-something.sh /usr/bin
+reboot-check-something.service /lib/systemd/system
+reboot-check.conf /user/local/share/reboot-check

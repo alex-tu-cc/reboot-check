@@ -1,0 +1,5 @@
+reboot-check (1.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Alex Tu <alex.tu@canonical.com>  Sat, 03 Dec 2016 19:07:45 +0800
