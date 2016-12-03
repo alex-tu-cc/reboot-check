@@ -1,5 +1,5 @@
-check-wwan.sh /usr/bin
-check-mobile-wwan-connection-nmcli.sh /usr/bin
-check-something.sh /usr/bin
+check-wwan.sh /usr/sbin
+check-mobile-wwan-connection-nmcli.sh /usr/sbin
+check-something.sh /usr/sbin
 reboot-check-something.service /lib/systemd/system
 reboot-check.conf /user/local/share/reboot-check
