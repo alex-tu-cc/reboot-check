@@ -1,10 +1,10 @@
 Source: reboot-check
 Section: misc
 Priority: optional
-Maintainer: Commercial Engineering <commercial-engineering@canonical.com>
+Maintainer: alex tu <alex.tu@canonical.com>
 Build-Depends: debhelper (>=9), dh-modaliases
 Standards-Version: 3.9.8
-Vcs-Bzr: 
+Vcs-Bzr: ssh://git.launchpad.net/~alextu/somerville/+git/reboot-check 
 
 Package: reboot-check
 Architecture: all
