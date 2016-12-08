@@ -39,8 +39,8 @@ done
 
 reboot(){
     echo reboot .... 
+    rm $DBUS_MENU_LOG
     [ "$DRY_RUN" != "1" ] && systemctl reboot
-    echo reboot .... 
 }
 
 python nm_indicator_dbusmenu_introspect.py&

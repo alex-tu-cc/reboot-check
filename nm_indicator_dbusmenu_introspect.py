@@ -4,7 +4,7 @@ from gi.repository import Unity, Gio, GObject, GLib, Dbusmenu
 import os
 
 def on_root_changed(client, data):
-    f= open('/home/u/.cache/dbus-menu-nmapplet.log','a');
+    f= open('/home/u/.cache/dbus-menu-nmapplet.log','w');
 #    print("Client root",client.get_root())
 #    print("Client root children",client.get_root().get_children())
 
