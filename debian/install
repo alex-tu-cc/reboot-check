@@ -1,7 +1,10 @@
-check-wwan.sh /usr/sbin
-check-wwan-py.sh /usr/sbin
-nm_indicator_dbusmenu_introspect.py /usr/sbin
-check-mobile-wwan-connection-nmcli.sh /usr/sbin
-check-something.sh /usr/sbin
-reboot-check-something.service /lib/systemd/system
-reboot-check.conf /user/local/share/reboot-check
+check-wwan.sh                       /usr/sbin
+check-wwan-py.sh                    /usr/sbin
+check-mobile-wwan-connection-nmcli.sh   /usr/sbin
+check-something.sh                      /usr/sbin
+reboot-check-something.service          /lib/systemd/system
+reboot-check.conf                   /user/local/share/reboot-check
+
+sniffer-nm-applet/nm-applet-sniffer.desktop             /etc/xdg/autostart/
+sniffer-nm-applet/nm-applet-sniffer-dump.sh         /usr/sbin
+sniffer-nm-applet/nm_indicator_dbusmenu_introspect.py   /usr/sbin

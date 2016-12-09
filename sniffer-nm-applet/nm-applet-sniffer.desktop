@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=nm-applet-sniffer
+Comment=nm-applet-sniffer
+Icon=nm-device-wireless
+Exec=env NM_SNIFFER_LOG_FILE=/tmp/nm-sniffer-log /bin/bash -c "/usr/sbin/nm-applet-sniffer-dump.sh"
+Terminal=false
+Type=Application
+NoDisplay=true
+NotShowIn=KDE;GNOME;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=NetworkManager
+X-GNOME-Bugzilla-Component=nm-applet-sniffer
+X-GNOME-UsesNotifications=true
+X-Ubuntu-Gettext-Domain=nm-applet-sniffer
