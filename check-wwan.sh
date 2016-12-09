@@ -2,7 +2,7 @@
 
 
 MONITOR_STRING="Telecom"
-NM_APPLET_LOG="/home/u/.cache/nm-applet.log"
+DBUS_MENU_LOG="/tmp/nm-sniffer-log"
 LOCAL_LOG=/var/local/$0.log
 
 usage() {
@@ -42,4 +42,10 @@ reboot(){
 }
 
 echo $(($(cat /var/local/count)+1)) > /var/local/count || true
-grep $MONITOR_STRING $NM_APPLET_LOG && reboot
+while [ ! -e $DBUS_MENU_LOG ];
+do
+    sleep 3
+    echo waitting $DBUS_MENU_LOG
+done
+grep $MONITOR_STRING $DBUS_MENU_LOG && reboot
+echo not reboot ....
