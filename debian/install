@@ -1,3 +1,4 @@
+check-custom.sh                       /usr/sbin
 check-wwan.sh                       /usr/sbin
 check-mobile-wwan-connection-nmcli.sh   /usr/sbin
 check-something.sh                      /usr/sbin
