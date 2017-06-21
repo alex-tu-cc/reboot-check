@@ -1,3 +1,9 @@
+reboot-check (1.6) xenial; urgency=medium
+
+  * add common
+
+ -- Alex Tu <alex.tu@canonical.com>  Wed, 21 Jun 2017 17:00:13 +0800
+
 reboot-check (1.5) xenial; urgency=medium
 
   * add send notify.
