@@ -52,9 +52,7 @@ reboot(){
 #    fi
 #done
 
-
-notify_user "$(cat /var/local/count) times reboot passed"
-sleep 90
+wait_and_notify 70 "$(cat /var/local/count) times reboot passed"
 
 echo $(($(cat /var/local/count)+1)) > /var/local/count || true
 if [ $(cat /var/local/count) -gt $TARGET_CYCLES ]; then

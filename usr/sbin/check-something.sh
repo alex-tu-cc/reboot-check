@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # default path, could be replaced by -f
-CONF_PATH=/user/local/share/reboot-check/reboot-check.conf
+CONF_PATH=/usr/share/reboot-check/reboot-check.conf
 parse_conf() {
 while read propline ; do
    # ignore comment lines
