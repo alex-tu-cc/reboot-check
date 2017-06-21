@@ -1,0 +1,10 @@
+[Unit]
+Description=Network test
+#After=ath10k-delay-loading.service
+[Service]
+StandardOutput=syslog+console
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=/bin/sh -c /usr/sbin/check-something.sh -f /user/local/share/reboot-check/reboot-check.conf
+[Install]
+WantedBy=multi-user.target

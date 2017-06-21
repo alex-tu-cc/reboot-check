@@ -1,0 +1,12 @@
+813f41338e2bc51ef150bb756ea71950  lib/systemd/system/reboot-check-something.service
+02c9aa4af79229d1a0396c515a072338  user/local/share/reboot-check/reboot-check.conf
+b1ad426cc5faf36439921edc678e96b1  usr/sbin/check-custom-stress-reboot.sh
+f6c9e4552be813bf70ba5faaec1c6101  usr/sbin/check-custom.sh
+54f1afdf8b9d751617bf723f50bdfdb8  usr/sbin/check-mobile-wwan-connection-nmcli.sh
+bba4f2dafdfdb4679750a91e3259d0af  usr/sbin/check-something.sh
+db773129959f794b84b405d1e46ea0df  usr/sbin/check-wwan.sh
+250e838b240e5abd4359992fb183c0cd  usr/sbin/nm-applet-sniffer-dump.sh
+78121d7df0dc4f84ed7f2c0d288ab519  usr/sbin/nm_indicator_dbusmenu_introspect.py
+75ff74edda0c2457785190a3e1bbfe15  usr/share/doc/reboot-check/README.Debian
+0b30d19261f50da909ba3837f84a515e  usr/share/doc/reboot-check/changelog.gz
+85e562c1c5f2f032e997191ab9d4575b  usr/share/doc/reboot-check/copyright
