@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # https://bugs.launchpad.net/ubuntu/+source/network-manager/+bug/1647283
 # https://bugs.launchpad.net/somerville/+bug/1639117
@@ -48,6 +48,20 @@ reboot(){
 #        sleep 5
 #    fi
 #done
+
+
+notify_user(){
+    [ $# == 0 ] && return
+    local xuser_display_pairs=($(who | sed 's/[(|)]/ /g' | awk '{print $1 " " $5}' | grep ":"))
+    for(( i=0; i < ${#xuser_display_pairs[@]}; i+=2));
+    do
+        XAUTHORITY=/home/${xuser_display_pairs[$i]}/.Xauthority DISPLAY=${xuser_display_pairs[$((i+1))]} notify-send -u critical "$1"
+    done
+    wall "$1"
+}
+
+notify_user "$(cat /var/local/count) times reboot passed"
+sleep 90
 
 echo $(($(cat /var/local/count)+1)) > /var/local/count || true
 if [ $(cat /var/local/count) -gt $TARGET_CYCLES ]; then

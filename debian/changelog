@@ -1,3 +1,9 @@
+reboot-check (1.5) xenial; urgency=medium
+
+  * add send notify.
+
+ -- Alex Tu <alex.tu@canonical.com>  Wed, 21 Jun 2017 14:21:55 +0800
+
 reboot-check (1.4) xenial; urgency=medium
 
   * add reboot stress default 30 times

@@ -2,6 +2,7 @@ check-custom.sh                       /usr/sbin
 check-wwan.sh                       /usr/sbin
 check-mobile-wwan-connection-nmcli.sh   /usr/sbin
 check-something.sh                      /usr/sbin
+check-custom-stress-reboot.sh   /usr/sbin
 reboot-check-something.service          /lib/systemd/system
 reboot-check.conf                   /user/local/share/reboot-check
 
