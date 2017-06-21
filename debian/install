@@ -1,6 +1,5 @@
 usr
 reboot-check-something.service          /lib/systemd/system
-reboot-check.conf                   /user/local/share/reboot-check
 
 sniffer-nm-applet/nm-applet-sniffer.desktop             /etc/xdg/autostart/
 sniffer-nm-applet/nm-applet-sniffer-dump.sh         /usr/sbin
