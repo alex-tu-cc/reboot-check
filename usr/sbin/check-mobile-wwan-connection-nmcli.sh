@@ -30,6 +30,7 @@ do
        shift
 done
 
+source check-common.sh
 check_dry_run(){
     if [ "$DRY_RUN" == "1" ]; then
         echo "$@"
@@ -54,8 +55,8 @@ func_failed(){
 }
 
 # give some time incase manually stop is needed.
-check_dry_run sleep 30
-set -x
+check_dry_run wait_and_notify 60 "$(cat /var/local/count) times reboot passed"
+
 for retry in $(seq 1 30);
 do 
         # check gsm available

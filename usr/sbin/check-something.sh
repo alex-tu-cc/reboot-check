@@ -12,7 +12,7 @@ done <  $CONF_PATH
 }
 
 run() {
-   [ "$DRY_RUN" != "1" ] && $1
+   [ "$DRY_RUN" != "1" ] && $1 2>&1 >> /var/local/log
 }
 usage() {
 cat << EOF

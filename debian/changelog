@@ -1,3 +1,9 @@
+reboot-check (1.8) xenial; urgency=medium
+
+  * add notify in wwan check.
+
+ -- Alex Tu <alex.tu@canonical.com>  Fri, 23 Jun 2017 10:57:19 +0800
+
 reboot-check (1.7) xenial; urgency=medium
 
   * mv stuff to /usr
