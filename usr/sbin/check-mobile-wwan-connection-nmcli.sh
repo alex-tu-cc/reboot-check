@@ -4,26 +4,31 @@ set -x
 LOG=/var/local/count
 RETRY_LOG=/var/local/retry
 DRY_RUN=0;
+# default cycle 30
 usage() {
 cat << EOF
 usage: $0 options
-    
+
     -h|--help print this message
     -dry-run tryrun
 EOF
 exit 1
 }
 
-while [ $# -gt 0 ]                                                                                   
+while [ $# -gt 0 ]
 do
     case "$1" in
         -h | --help)
             usage 0
             exit 0
-            ;;  
+            ;;
         --dry-run)
             DRY_RUN=1;
-            ;;  
+            ;;
+        --cycle)
+            shift
+            export CYCLE=$1;
+            ;;
         *)
 	usage
        esac
@@ -43,7 +48,7 @@ func_get_and_reboot(){
     echo "success, process to reboot"
     local count
     count=$(cat $LOG)
-    count=$((count+1)) 
+    count=$((count+1))
     echo $count > $LOG
     check_dry_run systemctl reboot
     exit 1
@@ -69,7 +74,7 @@ do
             ping -c 3 www.google.com || func_failed
             func_get_and_reboot
         else
-            echo $retry > $RETRY_LOG
+            echo "$retry" > "$RETRY_LOG"
             continue              
         fi 
     sleep 1

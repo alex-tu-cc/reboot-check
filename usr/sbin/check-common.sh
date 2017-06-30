@@ -3,9 +3,48 @@
 # This script is prepared to be included.
 #
 
+
+check_dry_run(){
+    if [ "$DRY_RUN" == "1" ]; then
+        echo "$@"
+    else
+        "$@"
+    fi
+}
+
+func_failed(){
+    echo failed!!!;
+    exit 1;
+}
+
 reboot(){
     [ "$DRY_RUN" != "1" ] && systemctl reboot
 }
+
+suspend(){
+    [ "$DRY_RUN" != "1" ] && echo $(date +%s -d '+ 15 seconds') > /sys/class/rtc/rtc0/wakealarm
+    [ "$DRY_RUN" != "1" ] && systemctl suspend
+}
+
+func_update_count_and_suspend(){
+    COUNTING=/var/local/count
+    local next_count=$(($(cat "$COUNTING")+1)) || true
+    [ $next_count -gt "$CYCLE" ] && exit
+    echo "success, process to reboot"
+    echo $next_count > "$COUNTING"
+    suspend
+}
+
+func_update_count_and_reboot(){
+    COUNTING=/var/local/count
+    local next_count=$(($(cat "$COUNTING")+1)) || true
+    [ $next_count -gt "$CYCLE" ] && exit
+    echo "success, process to reboot"
+    echo $next_count > "$COUNTING"
+    reboot
+}
+
+
 
 
 # $1 is the filter bash command, ex. grep -e "^w"
