@@ -5,7 +5,6 @@ LOG=/var/local/count
 RETRY_LOG=/var/local/retry
 DRY_RUN=0;
 WAIT_SECS=60
-# default cycle 30
 usage() {
 cat << EOF
 usage: $0 options
