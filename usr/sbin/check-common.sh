@@ -68,7 +68,7 @@ wait_and_notify(){
     runs=$(($1/$sleep_secs))
     for ((i; i < $runs; i++ )); do
         sleep $sleep_secs
-        notify_user "$2 $i in $runs"
+        notify_user "$2 , count down $i in $runs"
     done
 
 
