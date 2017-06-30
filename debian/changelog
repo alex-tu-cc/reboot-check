@@ -1,3 +1,15 @@
+reboot-check (1.10) xenial; urgency=medium
+
+  * add a entry as user interface.
+
+ -- Alex Tu <alex.tu@canonical.com>  Fri, 30 Jun 2017 18:27:28 +0800
+
+reboot-check (1.9) xenial; urgency=medium
+
+  * add S3 checking for wwan.
+
+ -- Alex Tu <alex.tu@canonical.com>  Fri, 30 Jun 2017 13:45:03 +0800
+
 reboot-check (1.8) xenial; urgency=medium
 
   * add notify in wwan check.
