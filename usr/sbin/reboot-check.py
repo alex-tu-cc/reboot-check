@@ -18,10 +18,10 @@ if args.list == True:
     with open(args.conf_file) as fp:
         print("now list avaliable scripts in "+ args.conf_file);
         for line in iter(fp.readline,''):
-            if ".sh" in line:
-                print(line)
+            print(line)
         print("you could enable them by -e ${name}.sh")
         print("ex. -e check-s3-mobile-wwan-connection-nmcli.sh")
+        print("or edit config file directly.")
 
 if args.enable != None:
     print("opening " + args.conf_file)
