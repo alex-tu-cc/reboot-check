@@ -1,3 +1,9 @@
+reboot-check (1.11) xenial; urgency=medium
+
+  * s3: update wwan and bz
+
+ -- Alex Tu <alex.tu@canonical.com>  Fri, 14 Jul 2017 15:39:04 +0800
+
 reboot-check (1.10) xenial; urgency=medium
 
   * add a entry as user interface.

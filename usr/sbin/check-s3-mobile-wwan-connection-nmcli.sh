@@ -51,14 +51,15 @@ while [ 1 ]; do
     do
             # check gsm available
             gsm_status=$(nmcli -f TYPE,STATE dev | awk '/gsm/ {print $2}')
-            if [ "$gsm_status" == "disconnected" ]; then
-                gsm_uuid=$(nmcli -p con | awk '/gsm/ {print $(NF-2)}') || func_failed
-                # connect
-                nmcli -t con up uuid "$gsm_uuid"
+            if [ "$gsm_status" == "connected" ]; then
                 # try ping
                 ping -c 3 www.google.com || func_failed
                 func_update_count_and_suspend
                 break
+            elif [ "$gsm_status" == "disconnected" ]; then
+                gsm_uuid=$(nmcli -p con | awk '/gsm/ {print $(NF-2)}') || func_failed
+                # connect
+                nmcli -t con up uuid "$gsm_uuid"
             else
                 echo "$retry" > "$RETRY_LOG"
         	sleep 1
