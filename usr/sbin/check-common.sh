@@ -3,7 +3,7 @@
 # This script is prepared to be included.
 #
 
-
+set +x
 check_dry_run(){
     if [ "$DRY_RUN" == "1" ]; then
         echo "$@"
@@ -85,3 +85,14 @@ notify_user(){
     wall "$1"
 }
 
+# noticifican should be issued after some delay, otherwise it will not shows on screen.
+notify_user_interactive(){
+    [ $# == 0 ] && return
+    local xuser_display_pairs=($(who | sed 's/[(|)]/ /g' | awk '{print $1 " " $5}' | grep ":"))
+    local i=0
+    for(( i=0; i < ${#xuser_display_pairs[@]}; i+=2));
+    do
+        XAUTHORITY=/home/${xuser_display_pairs[$i]}/.Xauthority DISPLAY=${xuser_display_pairs[$((i+1))]} zenity --info  --text="$1"
+    done
+    wall "$1"
+}
