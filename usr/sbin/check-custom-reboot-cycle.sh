@@ -11,7 +11,7 @@ usage:  options
     
     -h|--help print this message
     --dry-run dryrun
-    --wait  how many secs to wait before issue check after reboot. Default=70
+    --wait_secs  how many secs to wait before issue check after reboot. Default=70
     --cycles how many cycles to run. Default=30
     --call what bash command do you like to call after S3 resume.
             the return value(\$0) will be check, success:0, failed:1
@@ -39,7 +39,7 @@ do
             shift;
             TARGET_CYCLES=$1;
             ;;
-        --wait)
+        --wait_secs)
             shift;
             WAIT_BEFORE_CHECK=$1;
             ;;

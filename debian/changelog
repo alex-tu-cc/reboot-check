@@ -1,3 +1,15 @@
+reboot-check (1.13) xenial; urgency=medium
+
+  * bump version
+
+ -- Alex Tu <alex.tu@canonical.com>  Mon, 17 Jul 2017 18:04:50 +0800
+
+reboot-check (1.12) xenial; urgency=medium
+
+  * add --call to call external check script.
+
+ -- Alex Tu <alex.tu@canonical.com>  Mon, 17 Jul 2017 18:02:28 +0800
+
 reboot-check (1.11) xenial; urgency=medium
 
   * s3: update wwan and bz
