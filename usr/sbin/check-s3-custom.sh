@@ -54,7 +54,7 @@ while [ 1 ]; do
     # give some time incase manually stop is needed.
     check_dry_run wait_and_notify $WAIT_SECS "$(cat /var/local/count) times S3 passed"
 
-    if  $CHECK_COMMAND ;then
+    if  bash -c $CHECK_COMMAND ;then
         func_update_count_and_suspend
         continue
     else
