@@ -58,7 +58,7 @@ reboot(){
 #    fi
 #done
 
-wait_and_notify 20 "$(cat /var/local/count) times reboot passed"
+wait_and_notify 70 "$(cat /var/local/count) times reboot passed"
 
 echo $(($(cat /var/local/count)+1)) > /var/local/count || true
 

@@ -29,8 +29,7 @@ suspend(){
 func_update_count_and_suspend(){
     COUNTING=/var/local/count
     local next_count=$(($(cat "$COUNTING")+1)) || true
-    [ $next_count -gt "$CYCLE" ] && exit
-    echo "success, process to reboot"
+    echo "success, process to suspend"
     echo $next_count > "$COUNTING"
     suspend
 }
@@ -38,7 +37,6 @@ func_update_count_and_suspend(){
 func_update_count_and_reboot(){
     COUNTING=/var/local/count
     local next_count=$(($(cat "$COUNTING")+1)) || true
-    [ $next_count -gt "$CYCLE" ] && exit
     echo "success, process to reboot"
     echo $next_count > "$COUNTING"
     reboot
