@@ -4,12 +4,15 @@ set -x
 # https://bugs.launchpad.net/somerville/+bug/1639117
 LOCAL_LOG=/var/local/$0.log
 TARGET_CYCLES=30
+WAIT_BEFORE_CHECK=70
 usage() {
 cat << EOF
 usage:  options
     
     -h|--help print this message
-    -dry-run dryrun
+    --dry-run dryrun
+    --wait  how many secs to wait before issue check after reboot. Default=70
+    --cycles how many cycles to run. Default=30
     --call what bash command do you like to call after S3 resume.
             the return value(\$0) will be check, success:0, failed:1
     
@@ -31,6 +34,14 @@ do
             shift;
             MONITOR_STRING=$1
             echo MONITOR_STRING=$MONITOR_STRING
+            ;;
+        --cycles)
+            shift;
+            TARGET_CYCLES=$1;
+            ;;
+        --wait)
+            shift;
+            WAIT_BEFORE_CHECK=$1;
             ;;
         --call)
             shift;
@@ -58,7 +69,7 @@ reboot(){
 #    fi
 #done
 
-wait_and_notify 70 "$(cat /var/local/count) times reboot passed"
+wait_and_notify $WAIT_BEFORE_CHECK "$(cat /var/local/count) times reboot passed"
 
 echo $(($(cat /var/local/count)+1)) > /var/local/count || true
 
