@@ -76,6 +76,7 @@ echo $(($(cat /var/local/count)+1)) > /var/local/count || true
 if [ $(cat /var/local/count) -gt $TARGET_CYCLES ]; then
     echo "reached target cycle $TARGET_CYCLES";
 else
+    [ -n $CHECK_COMMAND ] || CHECK_COMMAND=:
     if bash -c $CHECK_COMMAND ;then
         func_update_count_and_reboot
     else
