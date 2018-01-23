@@ -1,3 +1,9 @@
+reboot-check (1.15) xenial; urgency=medium
+
+  * refine S3 cycle to support checking nothing.
+
+ -- Alex Tu <alex.tu@canonical.com>  Tue, 23 Jan 2018 16:51:42 +0800
+
 reboot-check (1.14) xenial; urgency=medium
 
   * rename script.

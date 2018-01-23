@@ -1,26 +1,20 @@
-#!/bin/sh
-
-# default path, could be replaced by -f
-CONF_PATH=/usr/share/reboot-check/reboot-check.conf
-parse_conf() {
-while read propline ; do
-   # ignore comment lines
-   expr "$propline" : "^#*" && continue
-   # if not empty, set the property using declare
-   [ ! -z "$propline" ] && run "$propline"
-done <  $CONF_PATH
-}
-
-run() {
-   [ "$DRY_RUN" != "1" ] && $1 2>&1 >> /var/local/log
-}
+#!/bin/bash
+# reference : http://ah.thameera.com/connecting-to-mobile-broadband-from-a-terminal/
+set -x
+LOG=/var/local/count
+RETRY_LOG=/var/local/retry
+DRY_RUN=0;
+WAIT_SECS=60
 usage() {
 cat << EOF
-usage:  options
+usage: $0 options
 
-    -h|--help print this message
-    -dry-run tryrun
-    -f| --file spefic the config file.
+    -h|--help       print this message
+    -dry-run        tryrun
+    --cycle         the test cycle number
+    --wait_secs     the waiting time before checking.
+    --call          what bash command do you like to call after S3 resume.
+                    the return value(\$0) will be check, success:0, failed:1
 
 EOF
 exit 1
@@ -28,7 +22,7 @@ exit 1
 
 while [ $# -gt 0 ]
 do
-    case "" in
+    case "$1" in
         -h | --help)
             usage 0
             exit 0
@@ -36,15 +30,35 @@ do
         --dry-run)
             DRY_RUN=1;
             ;;
-        -f| --file)
+        --cycle)
             shift;
-            CONF_PATH=$1
-            echo "CONF_PATH=$CONF_PATH"
-        ;;
+            export CYCLE=$1;
+	    ;;
+        --wait_secs)
+            shift;
+            WAIT_SECS=$1;
+            ;;
+        --call)
+            shift;
+            CHECK_COMMAND=$1;
+            ;;
         *)
-        usage
+	usage
        esac
        shift
 done
 
-parse_conf
+source check-common.sh
+
+while [ 1 ]; do
+    # give some time incase manually stop is needed.
+    check_dry_run wait_and_notify $WAIT_SECS "$(cat /var/local/count) times S3 passed"
+
+        if [ -z "$CHECK_COMMAND" ]  || bash -c $CHECK_COMMAND ;then
+            func_update_count_and_suspend
+            continue
+        else
+            notify_user_interactive "$CHECK_COMMAND failed"
+            exit 1
+        fi
+done
