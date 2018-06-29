@@ -4,6 +4,6 @@ gdbus introspect --system --dest org.bluez --object-path /org/bluez/hci0 --only-
 if [ $? -ne 0 ]; then
 	echo 'Powered = false'
 	exit 1
-elif
+else
     exit 0
 fi
