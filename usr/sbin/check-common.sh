@@ -3,6 +3,17 @@
 # This script is prepared to be included.
 #
 
+LOG_PATH=/var/local/count
+COUNT_LOG=$LOG_PATH/count
+MSG_LOG=$LOG_PATH/msg
+RESULT_LOG=$LOG_PATH/result
+RETRY_LOG=/var/local/retry
+mkdir -p $LOG
+
+# $1: target file; $2 message
+log(){
+    echo $2 >> $1
+}
 
 check_dry_run(){
     if [ "$DRY_RUN" == "1" ]; then
