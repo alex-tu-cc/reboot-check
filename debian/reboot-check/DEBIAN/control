@@ -1,8 +1,0 @@
-Package: reboot-check
-Version: 1.5
-Architecture: all
-Maintainer: alex tu <alex.tu@canonical.com>
-Installed-Size: 37
-Section: misc
-Priority: optional
-Description: reboot-check, controlled by /user/local/share/reboot-check/reboot-check.conf
