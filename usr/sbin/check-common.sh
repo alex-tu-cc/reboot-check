@@ -78,6 +78,10 @@ notify_user(){
     local i=0
     for(( i=0; i < ${#xuser_display_pairs[@]}; i+=2));
     do
+	    if cat /etc/os-release | grep bionic; then
+		    echo sudo -u ${xuser_display_pairs[$i]} DISPLAY=${xuser_display_pairs[$((i+1))]} DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/`id -u ${xuser_display_pairs[$i]}`/bus notify-send -u critical "$1"
+		    sudo -u ${xuser_display_pairs[$i]} DISPLAY=${xuser_display_pairs[$((i+1))]} DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/`id -u ${xuser_display_pairs[$i]}`/bus notify-send -u critical "$1"
+	    fi
         XAUTHORITY=/home/${xuser_display_pairs[$i]}/.Xauthority DISPLAY=${xuser_display_pairs[$((i+1))]} notify-send -u critical "$1"
     done
     wall "$1"

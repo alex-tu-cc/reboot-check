@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -x
 # default path, could be replaced by -f
 CONF_PATH=/usr/share/reboot-check/reboot-check.conf
 parse_conf() {
@@ -28,7 +28,7 @@ exit 1
 
 while [ $# -gt 0 ]
 do
-    case "" in
+    case "$1" in
         -h | --help)
             usage 0
             exit 0
@@ -40,7 +40,7 @@ do
             shift;
             CONF_PATH=$1
             echo "CONF_PATH=$CONF_PATH"
-        ;;
+            ;;
         *)
         usage
        esac

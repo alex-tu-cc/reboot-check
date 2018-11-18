@@ -6,6 +6,6 @@ StandardOutput=syslog+console
 Type=oneshot
 Environment=DISPLAY=:0
 # please check /user/local/share/reboot-check/reboot-check.conf for detail usage.
-ExecStart=/bin/sh -c /usr/sbin/check-something.sh -f /user/local/share/reboot-check/reboot-check.conf
+ExecStart=/bin/sh -c /usr/sbin/check-something.sh -f /usr/share/reboot-check/reboot-check.conf
 [Install]
 WantedBy=multi-user.target
